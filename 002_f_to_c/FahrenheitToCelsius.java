@@ -18,4 +18,3 @@ public class FahrenheitToCelsius
         System.out.println("Sun: " + sunC);
     }
 }
-

@@ -1,4 +1,4 @@
-public class FahrenheitToCelsius
+public class FahrenheitToCelsiusV1
 {
     public static void main(String[] args)
     {

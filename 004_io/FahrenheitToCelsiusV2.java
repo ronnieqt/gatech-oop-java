@@ -6,7 +6,7 @@ import java.util.Scanner;
  * All Scanner next methods (except nextLine) skip any leading whitespace when scanning for tokens.
  */
 
-public class FahrenheitToCelsius 
+public class FahrenheitToCelsiusV2
 {
     public static void main(String[] args)
     {

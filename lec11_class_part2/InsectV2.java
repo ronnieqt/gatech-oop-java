@@ -3,6 +3,7 @@
  *   so that the objects operate as they are intended.
  * With the private keyword, we enforce encapsulation by giving access to an instance variable 
  *   to just the methods within its class.
+ * The private modifier enforces encapsulation.
  */
 
 public class InsectV2
@@ -34,6 +35,7 @@ public class InsectV2
     //   class (object type)     : null
     public InsectV2(double initWeight)
     {
+        // DIY principle: don't repeat yourself.
         // a more specific constructor calls a less specific one
         this(initWeight, DEFAULT_X, DEFAULT_Y);
     }

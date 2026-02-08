@@ -3,9 +3,10 @@
  *   so that the objects operate as they are intended.
  * With the private keyword, we enforce encapsulation by giving access to an instance variable 
  *   to just the methods within its class.
+ * The private modifier enforces encapsulation.
  */
 
-public class InsectV1
+public class Insect
 {
     // class members
 
@@ -16,6 +17,8 @@ public class InsectV1
 
     // static constants (final) and variables
     // Static modifier turns a class member into a shared entity across all objects of a class.
+    public static final int DEFAULT_X = 0;
+    public static final int DEFAULT_Y = 0;
     public final double DIST_WEIGHT_LOSS_FACTOR = 0.0001;
     private static int population = 0;
     private static final String[] FACTS = {
@@ -30,11 +33,20 @@ public class InsectV1
     //   numeric primitive types : 0
     //   boolean                 : false
     //   class (object type)     : null
-    public InsectV1(double initWeight, int initX, int initY) 
+    public Insect(double initWeight)
     {
-        weight = initWeight;
-        x = initX;
-        y = initY;
+        // DIY principle: don't repeat yourself.
+        // a more specific constructor calls a less specific one
+        this(initWeight, DEFAULT_X, DEFAULT_Y);
+    }
+
+    public Insect(double weight, int x, int y) 
+    {
+        // within a method's body, any use of an identifier that's also the name of a formal parameter
+        // represents that formal parameters
+        this.weight = weight;  // use "this" as a reference
+        this.x = x;
+        this.y = y;
         ++population;
     }
 
@@ -46,16 +58,58 @@ public class InsectV1
         weight += amount;
     }
 
-    public void move(int newX, int newY)
+    // getters (getVarName) and setters (setVarName)
+    // setter methods should include validation before setting the variable if applicable
+    public double getWeight() 
     {
-        double distance = calculateDistance(x, y, newX, newY);
+        return weight;
+    }
+
+    public int getX()
+    {
+        return x;
+    }
+
+    public void setX(int x)
+    {
+        if (isLegalX(x)) {
+            this.x = x;
+        }
+    }
+
+    public int getY()
+    {
+        return y;
+    }
+
+    public void setY(int y)
+    {
+        if (isLegalY(y)) {
+            this.y = y;
+        }
+    }
+
+    @Override  // method override
+    public String toString() 
+    {
+        return String.format("Insect(weight: %.1f, x: %d, y: %d)", weight, x, y);
+    }
+
+    // getters for static variables must also be static
+    public static int getPopulation()
+    {
+        return population;
+    }
+
+    public void move(int x, int y)
+    {
+        double distance = calculateDistance(this.x, this.y, x, y);
         if (distance > 0) {
-            x = newX;
-            y = newY;
+            this.x = x;
+            this.y = y;
             weight = weight * DIST_WEIGHT_LOSS_FACTOR * distance;
             System.out.printf("Moved %.2f units\n", distance);
-        } 
-        else {
+        } else {
             System.out.println("Staying put");
         }
     }
@@ -78,19 +132,13 @@ public class InsectV1
         return FACTS[idx];
     }
 
-    // test method
-    public static void main(String[] args) 
+    public static boolean isLegalX(int newX)
     {
-        System.out.println("Insect population: " + population);
-        InsectV1 bug1 = new InsectV1(10, 100, 90);
-        System.out.println("Insect population: " + population);
-        InsectV1 bug2 = new InsectV1(4, -300, 400);
-        System.out.println("Insect population: " + population);
+        return (newX >= 0 ? true : false);
+    }
 
-        bug1.eat(10);
-        bug1.move(1, 10);
-        bug2.move(-300, 400);
-
-        System.out.println(produceRandomeFact());
+    public static boolean isLegalY(int newY)
+    {
+        return (newY >= 0 ? true : false);
     }
 }

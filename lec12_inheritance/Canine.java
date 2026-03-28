@@ -43,5 +43,5 @@ public abstract class Canine
     // We'll imagine that unlike bark, there's not much consistency in how each of the possible canine descendants groom themselves.
     // So there isn't a default groom method definition to actually putting the Canine level the hierarchy for sharing.
     // By declaring groom as an abstract method, we can enforce it any class that wants to claim that it is a Canine has a groom method.
-    public abstract void groom();
+    // public abstract void groom();
 }

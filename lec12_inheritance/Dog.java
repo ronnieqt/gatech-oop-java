@@ -8,9 +8,6 @@ public class Dog extends Canine
         this.name = name;
     }
 
-    @Override
-    public void groom() {}
-
     public void fetch()
     {
         System.out.println("Run");

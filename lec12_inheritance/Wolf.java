@@ -1,4 +1,4 @@
-public class Wolf extends Canine
+public class Wolf extends Canine implements Groomable
 {
     protected int rank;
 
@@ -11,8 +11,10 @@ public class Wolf extends Canine
         this.rank = rank;
     }
 
-    @Override
-    public void groom() {}
+    public void groom() 
+    {
+        System.out.println("lick");
+    }
 
     // The final modifier signifies that methods/classes are in their terminal definition or form.
     // A final variable: cannot be modified (a constant).

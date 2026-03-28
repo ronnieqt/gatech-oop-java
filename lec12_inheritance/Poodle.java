@@ -1,4 +1,4 @@
-public class Poodle extends Dog implements Groomable
+public class Poodle extends Dog implements IGroomable
 {
     private String favoriteShampoo;
     private String favoriteConditioner;

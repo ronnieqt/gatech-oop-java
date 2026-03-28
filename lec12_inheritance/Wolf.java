@@ -1,4 +1,9 @@
-public class Wolf extends Canine implements Groomable
+import java.util.Arrays;
+
+// A generic type is an interface or class that is capable of 
+//   accepting input that identifies the kinds of data (i.e., types) it can work with.
+
+public class Wolf extends Canine implements IGroomable, Comparable<Wolf>
 {
     protected int rank;
 
@@ -9,11 +14,6 @@ public class Wolf extends Canine implements Groomable
         //   Java automatically invokes a parameterless super constructor at the very start of the child's constructor.
         super(size);
         this.rank = rank;
-    }
-
-    public void groom() 
-    {
-        System.out.println("lick");
     }
 
     // The final modifier signifies that methods/classes are in their terminal definition or form.
@@ -43,9 +43,41 @@ public class Wolf extends Canine implements Groomable
         }
     }
 
+    @Override
+    public String toString()
+    {
+        return "{Rank=" + rank + ", Size=" + size + "}";
+    }
+
+    public void groom() 
+    {
+        System.out.println("lick");
+    }
+
+    // Comparable
+    // >0 when the calling object is greater
+    // <0 when the calling object is less
+    // =0 when both are equal
+    public int compareTo(Wolf other)
+    {
+        return -(rank - ((Wolf) other).rank);
+    }
+
     public static void main(String[] args) 
     {
         Wolf alpha = new Wolf(17.1, 1);
+        Wolf puppy = new Wolf(3, 10);
         alpha.bark();  // the class of the object being referenced determines the method called.
+        System.out.println(alpha.compareTo(puppy));
+        // Arrays.sort()
+        Wolf[] pack = {
+            new Wolf(17.1, 2),
+            new Wolf(3, 10),
+            new Wolf(9.2, 7),
+            new Wolf(17.01, 3),
+        };
+        System.out.println("Unsorted pack: " + Arrays.toString(pack));
+        Arrays.sort(pack);  // Timsort
+        System.out.println("  Sorted pack: " + Arrays.toString(pack));
     }
 }

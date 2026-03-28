@@ -1,4 +1,4 @@
-public class Car implements Groomable 
+public class Car implements IGroomable 
 {
     private String make;
     private String model;

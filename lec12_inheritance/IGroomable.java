@@ -29,7 +29,11 @@
 
 // Modfiers like public and abstract can be ommitted in an interface as they are implied.
 
-public interface Groomable  // no need for the abstract modifier
+// An interface provides a way of enforcing that a class declares and/or defines one or more methods.
+// One way to think about an interface is that it's like a contract.
+// If the class implements an interface, it's bound to a contract represented by a set of abstract methods.
+
+public interface IGroomable  // no need for the abstract modifier
 {
     public void groom();
 }

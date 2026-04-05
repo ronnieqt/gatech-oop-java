@@ -5,7 +5,7 @@ public class Frog
     private double tongueSpeed;
     private boolean isFroglet;
 
-    private static String species = "Rare Repe";
+    private static String species = "Rare Pepe";
 
     // Ctors
     public Frog(String name, int age, double tongueSpeed)
@@ -27,12 +27,12 @@ public class Frog
     }
 
     // Setters and Getters
-    public void setSpecies(String newSpecies)
+    public static void setSpecies(String newSpecies)
     {
         species = newSpecies;
     }
 
-    public String getSpecies()
+    public static String getSpecies()
     {
         return species;
     }
@@ -121,8 +121,7 @@ public class Frog
         frog2.eat(fly3);
         System.out.println(frog2);
         System.out.println(fly3);
-        frog1.setSpecies("New Species");
-        System.out.println(frog1.getSpecies());
-        System.out.println(frog2.getSpecies());
+        Frog.setSpecies("New Species");
+        System.out.println(Frog.getSpecies());
     }
 }

@@ -12,7 +12,7 @@ public class Pond
         Fly fly2 = new Fly(6.0);
         // Fly fly3 = new Fly();
         // Set the species of any Frog to "1331 Frogs"
-        myfrog.setSpecies("1331 Frogs");
+        Frog.setSpecies("1331 Frogs");
         // Print out on a new line the description of the Frog named Peepo
         System.out.println(peepo);
         // Have the Frog named Peepo attempt to eat the Fly with a mass of 6

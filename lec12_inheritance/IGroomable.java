@@ -28,6 +28,7 @@
 // So in essence, Java passes the implements clause down the inheritance tree.
 
 // Modfiers like public and abstract can be ommitted in an interface as they are implied.
+// All method declarations in an interface are inherently public.
 
 // An interface provides a way of enforcing that a class declares and/or defines one or more methods.
 // One way to think about an interface is that it's like a contract.
@@ -36,4 +37,27 @@
 public interface IGroomable  // no need for the abstract modifier
 {
     public void groom();
+
+    // After Java 8, it became possible to include concrete methods in an interface.
+    // Java supports two different kinds of concrete interface methods: default and static methods.
+
+    // Below is a default method.
+    // We can add a default implementation of a method to an interface and all classes that implement that interface 
+    //   automatically gain that definition -- without having to recompile them.
+    // Default methods are treated much like instance methods that are defined in an actual class.
+    public default void pay()
+    {
+        System.out.println("Cha-Ching!");
+    }
+
+    // Below is a static method.
+    // Defining a static interface method is just like with a class.
+    // However, since all methods in an interface are public unless otherwise stated,
+    //   we can omit the public keyword in the header.
+    // Unlike default methods, static interface methods cannot be overridden in classes.
+    static String calculateTip(double price, double percentage)
+    {
+        double rawTip = price * (percentage / 100.0);
+        return String.format("$%,.2f", rawTip);
+    }
 }

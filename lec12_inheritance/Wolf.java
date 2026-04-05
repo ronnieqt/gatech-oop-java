@@ -53,6 +53,13 @@ public class Wolf extends Canine implements IGroomable, Comparable<Wolf>
     {
         System.out.println("lick");
     }
+    
+    // Overriding a default method
+    @Override
+    public void pay()
+    {
+        System.out.println("Grrr! Don't chase me for payment. I'm a Wolf. Run!");
+    }
 
     // Comparable
     // >0 when the calling object is greater

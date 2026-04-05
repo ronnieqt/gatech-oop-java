@@ -12,6 +12,7 @@ public class GroomEverything
 
         for (IGroomable g : groomer) { //groom everything
             g.groom();
+            g.pay();
         }
     }
 }

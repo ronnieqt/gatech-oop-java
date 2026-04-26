@@ -1,8 +1,8 @@
-public class Dog extends Canine
+public class Puppy extends Canine
 {
     protected String name;
 
-    public Dog(String name, double size)
+    public Puppy(String name, double size)
     {
         super(size);
         this.name = name;
@@ -22,20 +22,20 @@ public class Dog extends Canine
     @Override
     public boolean equals(Object o)
     {
-        if (!(o instanceof Dog)) {  // inherent null check
+        if (!(o instanceof Puppy)) {  // inherent null check
             return false;
         }
         // A new Dog reference variable (doggy) is formed by casting o to a Dog.
         // The cast operator only creates a new reference and does not change the type of its operand to something else.
-        Dog doggy = (Dog) o;
+        Puppy doggy = (Puppy) o;
         return ((doggy.size == size) && (doggy.name.equals(name)));
     }
 
     public static void main(String[] args) 
     {
-        Dog dog1 = new Dog("Spot", 9.6);
-        Dog dog2 = new Dog("Spot", 9.6);
-        Dog dog3 = new Dog("Spot", 9.600001);
+        Puppy dog1 = new Puppy("Spot", 9.6);
+        Puppy dog2 = new Puppy("Spot", 9.6);
+        Puppy dog3 = new Puppy("Spot", 9.600001);
         dog1.bark(); // inheriting methods
         System.out.println("dog1 == dog2: " + dog1.equals(dog2));
         System.out.println("dog1 == dog3: " + dog1.equals(dog3));

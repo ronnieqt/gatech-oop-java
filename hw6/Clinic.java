@@ -80,12 +80,14 @@ public class Clinic
             pet.speak();
             int treatmentTime = pet.treat();
             String timeOut = addTime(timeIn, treatmentTime);
-            log += name + "," + typeOfPet + "," + tokens[2] + "," + "Day " + day + ","
-                    + timeIn + "," + timeOut + "," + initHealth + "," + initPainLevel
-                    + "\n";
+            log += String.format("%s,%s,%s,Day %d,%s,%s,%s,%d\n",
+                    name, typeOfPet, tokens[2], day, timeIn, timeOut,
+                    String.valueOf(initHealth), initPainLevel);
         }
         day += 1;
-        return log;
+        fileScan.close();
+        input.close();
+        return log.trim();
     }
 
     public String nextDay(String fileName) throws FileNotFoundException
@@ -103,15 +105,20 @@ public class Clinic
         try {
             String[] tokens = patientInfo.split(",");
             String name = tokens[0];
-            String appointmentInfo = tokens[3] + "," + tokens[4] + ","
-                    + tokens[5] + "," + tokens[6] + "," + tokens[7];
             fileScan = new Scanner(patientFile);
             boolean newPatient = true;
             while (fileScan.hasNextLine()) {
                 String line = fileScan.nextLine();
-                if (line.contains(name)) {
-                    log += line + "," + appointmentInfo + "\n";
+                if (line.startsWith(name)) {
                     newPatient = false;
+                    String appointmentInfo = "";
+                    for (int i = 3; i < tokens.length; ++i) {
+                        appointmentInfo += tokens[i];
+                        if (i < tokens.length - 1) {
+                            appointmentInfo += ",";
+                        }
+                    }
+                    log += line + "," + appointmentInfo + "\n";
                 }
                 else {
                     log += line + "\n";

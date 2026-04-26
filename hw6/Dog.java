@@ -56,23 +56,23 @@ public class Dog extends Pet
         return false;
     }
 
-    // public static void main(String[] args)
-    // {
-    //     Dog d1 = new Dog("a", 0.2, 3);
-    //     d1.speak();
-    //     Dog d2 = new Dog("b", -0.2, 11);
-    //     System.out.println(d2.getHealth());
-    //     System.out.println(d2.getPainLevel());
-    //     System.out.println(d2.getDroolRate());
-    //     Dog d3 = new Dog("c", 0.4, 6, -0.1);
-    //     System.out.println("d3: " + d3.getHealth());
-    //     System.out.println("d3: " + d3.getPainLevel());
-    //     System.out.println("d3: " + d3.getDroolRate());
-    //     System.out.println("d3: " + d3.treat());
-    //     Dog d4 = new Dog("d", 0.4, 6, 4.5);
-    //     d4.speak();
-    //     System.out.println("d4: " + d4.treat());
-    //     Dog d5 = new Dog("e", 0.4, 6, 8);
-    //     System.out.println("d5: " + d5.treat());
-    // }
+    public static void main(String[] args)
+    {
+        Dog d1 = new Dog("a", 0.2, 3);
+        d1.speak();
+        Dog d2 = new Dog("b", -0.2, 11);
+        System.out.println(d2.getHealth());
+        System.out.println(d2.getPainLevel());
+        System.out.println(d2.getDroolRate());
+        Dog d3 = new Dog("c", 0.4, 6, -0.1);
+        System.out.println("d3: " + d3.getHealth());
+        System.out.println("d3: " + d3.getPainLevel());
+        System.out.println("d3: " + d3.getDroolRate());
+        System.out.println("d3: " + d3.treat());
+        Dog d4 = new Dog("d", 0.4, 6, 4.5);
+        d4.speak();
+        System.out.println("d4: " + d4.treat());
+        Dog d5 = new Dog("e", 0.4, 6, 8);
+        System.out.println("d5: " + d5.treat());
+    }
 }

@@ -50,12 +50,15 @@ Lectures build progressively:
 7. **Polymorphism** (lec13) — dynamic binding, is-a test, declared vs. object type
 8. **Exception handling** (lec14) — try/catch/finally, multi-catch, custom exceptions
 9. **File I/O** (lec15) — Scanner + PrintWriter on files, checked exceptions, CSV parsing
+10. **Lists & generics** (lec16) — ArrayList with autoboxing, generic classes (single/multi type parameters, bounded type parameters), custom generic linked list with inner Node class
+11. **Recursion** (lec17) — base case, reduction step, recursive call; call-stack visualization
 
 Homework assignments mirror this progression:
 - hw1–hw3: procedural and basic OOP problems
 - hw4: static fields/methods, encapsulation (Frog/Pond)
 - hw5: multi-class inheritance and interfaces (Among Us–style game)
 - hw6: full OOP + exception handling + file I/O (veterinary clinic simulation)
+- hw7: generic singly-linked list with full CRUD, null-safe equality, and wildcard-typed equals
 
 ## Utilities
 
